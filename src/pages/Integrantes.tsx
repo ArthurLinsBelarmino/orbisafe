@@ -97,7 +97,7 @@ export default function Integrantes() {
       <div className="orbi-card mt-10 text-center border-orbi-cyan/10">
         <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-2">Projeto</p>
         <p className="text-orbi-text font-display font-semibold">Global Solution 2026/1 — FIAP</p>
-        <p className="text-orbi-muted text-sm mt-1">Análise e Desenvolvimento de Sistemas · Turmas de Agosto</p>
+        <p className="text-orbi-muted text-sm mt-1">Análise e Desenvolvimento de Sistemas · Turmas 1TDSPS</p>
         <p className="text-orbi-cyan text-sm mt-1 font-mono">Tema: Economia Espacial</p>
       </div>
     </main>
