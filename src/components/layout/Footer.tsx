@@ -42,7 +42,7 @@ export default function Footer() {
 
           <div>
             <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-3">Projeto</p>
-            <p className="text-sm text-orbi-muted">Global Solution 2026/1</p>
+            <p className="text-sm text-orbi-muted">Global Solution 2026</p>
             <p className="text-sm text-orbi-muted">FIAP — Análise e Desenvolvimento de Sistemas</p>
             <p className="text-sm text-orbi-muted mt-2">Tema: Economia Espacial</p>
           </div>
