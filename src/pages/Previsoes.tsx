@@ -6,8 +6,11 @@ import type { Previsao, NivelRisco } from '../types';
 
 function PrevisaoForm({ onSuccess }: { onSuccess: () => void }) {
   const [form, setForm] = useState({
-    tipoEvento: '', probabilidade: '', nivelRiscoPrevisto: 'BAIXO', descricao: '',
-    localId: '', modeloIaId: '', dataHoraPrevisao: '',
+    idLocal: '', 
+    idModelo: '1', 
+    indiceSeveridade: '', 
+    probabilidadeOcorrencia: '', 
+    nivelRisco: 'BAIXO'
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -18,14 +21,14 @@ function PrevisaoForm({ onSuccess }: { onSuccess: () => void }) {
     setError('');
     try {
       await api.createPrevisao({
-        ...form,
-        probabilidade: form.probabilidade ? Number(form.probabilidade) : undefined,
-        localId: form.localId ? Number(form.localId) : undefined,
-        modeloIaId: form.modeloIaId ? Number(form.modeloIaId) : undefined,
-        dataHoraPrevisao: form.dataHoraPrevisao || new Date().toISOString(),
+        idLocal: Number(form.idLocal),
+        idModelo: Number(form.idModelo),
+        indiceSeveridade: Number(form.indiceSeveridade),
+        probabilidadeOcorrencia: Number(form.probabilidadeOcorrencia),
+        nivelRisco: form.nivelRisco,
       });
       onSuccess();
-      setForm({ tipoEvento: '', probabilidade: '', nivelRiscoPrevisto: 'BAIXO', descricao: '', localId: '', modeloIaId: '', dataHoraPrevisao: '' });
+      setForm({ idLocal: '', idModelo: '1', indiceSeveridade: '', probabilidadeOcorrencia: '', nivelRisco: 'BAIXO' });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao criar previsão.');
     } finally {
@@ -39,37 +42,33 @@ function PrevisaoForm({ onSuccess }: { onSuccess: () => void }) {
         <p className="font-mono text-xs text-orbi-cyan uppercase tracking-widest mb-2">+ Nova Previsão</p>
       </div>
       <div>
-        <label className="orbi-label">Tipo de Evento *</label>
-        <input required className="orbi-input" placeholder="ENCHENTE, QUEIMADA..." value={form.tipoEvento}
-          onChange={e => setForm(p => ({ ...p, tipoEvento: e.target.value }))} />
+        <label className="orbi-label">ID do Local *</label>
+        <input required type="number" className="orbi-input" value={form.idLocal}
+          onChange={e => setForm(p => ({ ...p, idLocal: e.target.value }))} />
       </div>
       <div>
-        <label className="orbi-label">Probabilidade (0-100)</label>
-        <input type="number" min="0" max="100" className="orbi-input" value={form.probabilidade}
-          onChange={e => setForm(p => ({ ...p, probabilidade: e.target.value }))} />
+        <label className="orbi-label">ID do Modelo IA *</label>
+        <input required type="number" className="orbi-input" value={form.idModelo}
+          onChange={e => setForm(p => ({ ...p, idModelo: e.target.value }))} />
       </div>
       <div>
+        <label className="orbi-label">Índice de Severidade (0-100) *</label>
+        <input required type="number" min="0" max="100" className="orbi-input" value={form.indiceSeveridade}
+          onChange={e => setForm(p => ({ ...p, indiceSeveridade: e.target.value }))} />
+      </div>
+      <div>
+        <label className="orbi-label">Probabilidade de Ocorrência (%) *</label>
+        <input required type="number" min="0" max="100" className="orbi-input" value={form.probabilidadeOcorrencia}
+          onChange={e => setForm(p => ({ ...p, probabilidadeOcorrencia: e.target.value }))} />
+      </div>
+      <div className="sm:col-span-2">
         <label className="orbi-label">Nível de Risco Previsto</label>
-        <select className="orbi-input" value={form.nivelRiscoPrevisto}
-          onChange={e => setForm(p => ({ ...p, nivelRiscoPrevisto: e.target.value }))}>
+        <select className="orbi-input" value={form.nivelRisco}
+          onChange={e => setForm(p => ({ ...p, nivelRisco: e.target.value }))}>
           {['BAIXO','MEDIO','ALTO','CRITICO'].map(n => <option key={n}>{n}</option>)}
         </select>
       </div>
-      <div>
-        <label className="orbi-label">ID do Local</label>
-        <input type="number" className="orbi-input" value={form.localId}
-          onChange={e => setForm(p => ({ ...p, localId: e.target.value }))} />
-      </div>
-      <div>
-        <label className="orbi-label">ID do Modelo IA</label>
-        <input type="number" className="orbi-input" value={form.modeloIaId}
-          onChange={e => setForm(p => ({ ...p, modeloIaId: e.target.value }))} />
-      </div>
-      <div>
-        <label className="orbi-label">Descrição</label>
-        <input className="orbi-input" value={form.descricao}
-          onChange={e => setForm(p => ({ ...p, descricao: e.target.value }))} />
-      </div>
+      
       {error && <p className="sm:col-span-2 text-orbi-red text-xs font-mono">{error}</p>}
       <div className="sm:col-span-2 flex justify-end">
         <button type="submit" disabled={loading} className="orbi-btn-primary disabled:opacity-50">
@@ -88,6 +87,7 @@ export default function Previsoes() {
   const previsoes = (data as Previsao[] | null) ?? [];
 
   function fmt(date: string) {
+    if (!date) return 'Data não definida';
     try { return new Date(date).toLocaleString('pt-BR'); }
     catch { return date; }
   }
@@ -100,10 +100,10 @@ export default function Previsoes() {
     return 'text-orbi-green';
   }
 
-  async function handleDelete(id: number) {
+  async function handleDelete(idPrevisao: number) {
     if (!confirm('Deletar esta previsão?')) return;
-    setDeleting(id);
-    try { await api.deletePrevisao(id); setRefresh(r => r + 1); }
+    setDeleting(idPrevisao);
+    try { await api.deletePrevisao(idPrevisao); setRefresh(r => r + 1); }
     catch (err) { alert(err instanceof Error ? err.message : 'Erro.'); }
     finally { setDeleting(null); }
   }
@@ -121,44 +121,42 @@ export default function Previsoes() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {previsoes.map((p) => (
-          <div key={p.id} className="orbi-card flex flex-col gap-3">
+          <div key={p.idPrevisao} className="orbi-card flex flex-col gap-3">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <p className="font-mono text-xs text-orbi-muted mb-0.5">#{p.id} · {p.tipoEvento}</p>
-                <BadgeRisco nivel={p.nivelRiscoPrevisto as NivelRisco} />
+                <p className="font-mono text-xs text-orbi-muted mb-0.5">Previsão #{p.idPrevisao}</p>
+                <BadgeRisco nivel={p.nivelRisco as NivelRisco} />
               </div>
-              {p.probabilidade !== undefined && (
+              {p.probabilidadeOcorrencia !== undefined && (
                 <div className="text-right">
                   <p className="font-mono text-xs text-orbi-muted">Probabilidade</p>
-                  <p className={`font-display font-bold text-xl ${probColor(p.probabilidade)}`}>
-                    {p.probabilidade}%
+                  <p className={`font-display font-bold text-xl ${probColor(p.probabilidadeOcorrencia)}`}>
+                    {p.probabilidadeOcorrencia}%
                   </p>
                 </div>
               )}
             </div>
 
-            {p.probabilidade !== undefined && (
+            {p.probabilidadeOcorrencia !== undefined && (
               <div className="h-1.5 bg-orbi-border rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all"
                   style={{
-                    width: `${p.probabilidade}%`,
-                    background: p.probabilidade >= 75 ? '#ff3b5c' : p.probabilidade >= 50 ? '#ff6b2b' : p.probabilidade >= 25 ? '#ffd200' : '#00ff88'
+                    width: `${p.probabilidadeOcorrencia}%`,
+                    background: p.probabilidadeOcorrencia >= 75 ? '#ff3b5c' : p.probabilidadeOcorrencia >= 50 ? '#ff6b2b' : p.probabilidadeOcorrencia >= 25 ? '#ffd200' : '#00ff88'
                   }}
                 />
               </div>
             )}
 
-            {p.descricao && <p className="text-xs text-orbi-muted">{p.descricao}</p>}
-
             <div className="flex items-center justify-between text-xs text-orbi-muted font-mono mt-auto pt-2 border-t border-orbi-border">
-              <span>{p.nomeLocal ? `📍 ${p.nomeLocal}` : p.localId ? `Local #${p.localId}` : '—'}</span>
-              <span>{fmt(p.dataHoraPrevisao)}</span>
+              <span>Local ID: {p.idLocal}</span>
+              <span>{fmt(p.dataPrevisao)}</span>
             </div>
 
-            <button onClick={() => handleDelete(p.id)} disabled={deleting === p.id}
+            <button onClick={() => handleDelete(p.idPrevisao)} disabled={deleting === p.idPrevisao}
               className="orbi-btn text-xs border border-orbi-red/30 text-orbi-red/70 hover:bg-orbi-red/10 disabled:opacity-50 w-full">
-              {deleting === p.id ? 'Deletando...' : 'Remover'}
+              {deleting === p.idPrevisao ? 'Deletando...' : 'Remover'}
             </button>
           </div>
         ))}
