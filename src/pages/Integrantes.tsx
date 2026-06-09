@@ -1,3 +1,10 @@
+import { useState } from 'react';
+
+// 🔥 Importando as imagens diretamente da pasta assets!
+import arthurImg from '../assets/Arthur.jpeg';
+import henriqueImg from '../assets/henrique.jpeg';
+import raphaelImg from '../assets/Raphael.jpeg';
+
 interface Integrante {
   nome: string;
   rm: string;
@@ -16,7 +23,7 @@ const integrantes: Integrante[] = [
     github: 'https://github.com/ArthurLinsBelarmino',
     linkedin: 'https://www.linkedin.com/in/arthur-lins-belarmino-3b1369328/',
     papel: 'Front-End & Business',
-    foto: '/Arthur.jpeg',
+    foto: arthurImg,
   },
   {
     nome: 'Henrique Spoltore Moreno Pavão dos Santos',
@@ -25,7 +32,7 @@ const integrantes: Integrante[] = [
     github: 'https://github.com/henrique477',
     linkedin: 'https://www.linkedin.com/in/henrique-pav%C3%A3o-849407251',
     papel: 'Front-End & Business',
-    foto: '/henrique.jpeg',
+    foto: henriqueImg,
   },
  {
     nome: 'Raphael Mendonça',
@@ -34,7 +41,7 @@ const integrantes: Integrante[] = [
     github: 'https://github.com/Raphael-Sinelli',
     linkedin: 'https://www.linkedin.com/in/raphael-sinelli-675310321',
     papel: 'Front-End & Business',
-    foto: '/Raphael.jpeg',
+    foto: raphaelImg,
   }
 ];
 
