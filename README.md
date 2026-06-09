@@ -237,7 +237,7 @@ O sistema realiza comunicação com uma API REST desenvolvida em Java, permitind
 
 ## Projeto Acadêmico
 
-Projeto desenvolvido para a **Global Solution 2026/1 da FIAP**, com foco na utilização de tecnologias espaciais e Inteligência Artificial para monitoramento ambiental, prevenção de desastres naturais e apoio à tomada de decisões.
+Projeto desenvolvido para a **Global Solution 2026 da FIAP**, com foco na utilização de tecnologias espaciais e Inteligência Artificial para monitoramento ambiental, prevenção de desastres naturais e apoio à tomada de decisões.
 
 ---
 
