@@ -113,7 +113,7 @@ Oracle Database
 ```
 ---
 
-## 📂 Estrutura de Pastas
+## Estrutura de Pastas
 
 ```text
 orbisafe/
