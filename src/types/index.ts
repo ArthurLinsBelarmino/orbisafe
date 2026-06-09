@@ -1,69 +1,44 @@
 export type NivelRisco = 'BAIXO' | 'MEDIO' | 'ALTO' | 'CRITICO';
-export type StatusAlerta = 'ATIVO' | 'RESOLVIDO' | 'MONITORANDO';
-export type TipoEvento = 'ENCHENTE' | 'QUEIMADA' | 'CALOR_EXTREMO' | 'SECA' | 'TEMPESTADE' | string;
-
-
-export interface Local {
-  id: number;
-  nome: string;
-  latitude: number;
-  longitude: number;
-  cidade?: string;
-  estado?: string;
-  pais?: string;
-  nivelRisco?: NivelRisco;
-  descricao?: string;
-}
 
 export interface Alerta {
-  id: number;
-  titulo: string;
-  descricao?: string;
-  tipoEvento: TipoEvento;
-  nivelRisco: NivelRisco;
-  status: StatusAlerta;
-  dataHora: string;
-  local?: Local;
-  localId?: number;
-  nomeLocal?: string;
+  idAlerta: number;
+  idLocal: number;
+  idPrevisao: number;
+  nivelAlerta: string;
+  mensagem: string;
+  status: 'ABERTO' | 'EM_ANALISE' | 'RESOLVIDO';
+  dataCriacao: string;
+}
+
+export interface Local {
+  idLocal: number;
+  nome: string;
+  tipoLocal: string;
+  cidade: string;
+  estado: string;
+  latitude: number;
+  longitude: number;
 }
 
 export interface Previsao {
-  id: number;
-  dataHoraPrevisao: string;
-  tipoEvento: TipoEvento;
-  probabilidade: number;
-  nivelRiscoPrevisto: NivelRisco;
-  descricao?: string;
-  local?: Local;
-  localId?: number;
-  nomeLocal?: string;
-  modeloIaId?: number;
-}
-
-export interface Medicao {
-  id: number;
-  dataHora: string;
-  temperatura?: number;
-  umidade?: number;
-  precipitacao?: number;
-  indiceVegetacao?: number;
-  areaQueimada?: number;
-  localId?: number;
-  nomeLocal?: string;
-  fonteId?: number;
+  idPrevisao: number;
+  idLocal: number;
+  idModelo: number;
+  indiceSeveridade: number;
+  probabilidadeOcorrencia: number;
+  nivelRisco: string;
+  dataPrevisao: string;
 }
 
 export interface Usuario {
-  id: number;
+  idUsuario: number;
   nome: string;
   email: string;
-  perfil?: string;
-  ativo?: boolean;
+  perfil: string;
 }
 
 export interface FonteDados {
-  id: number;
+  idFonte: number;
   nome: string;
   tipo?: string;
   url?: string;
@@ -71,13 +46,12 @@ export interface FonteDados {
 }
 
 export interface ModeloIA {
-  id: number;
+  idModelo: number;
   nome: string;
   versao?: string;
   descricao?: string;
   acuracia?: number;
 }
-
 
 export interface DashboardResumo {
   totalLocaisMonitorados?: number;
@@ -91,15 +65,14 @@ export interface DashboardResumo {
 }
 
 export interface LocalRisco {
-  id?: number;
+  idLocal?: number;
   nome?: string;
-  nivelRisco?: NivelRisco;
+  nivelRisco?: NivelRisco; 
   totalAlertas?: number;
   latitude?: number;
   longitude?: number;
   [key: string]: unknown;
 }
-
 
 export interface ApiState<T> {
   data: T | null;
