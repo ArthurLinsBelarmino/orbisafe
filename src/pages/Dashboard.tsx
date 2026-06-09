@@ -24,13 +24,13 @@ export default function Dashboard() {
       />
 
       {resumo.loading && <LoadingBox />}
-      {resumo.error   && <ErrorBox message={resumo.error} />}
+      {resumo.error   && <ErrorBox message={String(resumo.error)} />}
       {r && (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-          <StatCard label="Locais monitorados" value={r.totalLocaisMonitorados ?? r.totalLocais ?? '—'} icon="📍" color="cyan" />
-          <StatCard label="Alertas ativos"     value={r.alertasAtivos ?? '—'} icon="🔔" color="red" />
-          <StatCard label="Locais em risco"    value={r.locaisEmRiscoCritico ?? r.locaisEmRiscoAlto ?? '—'} icon="⚠️" color="orange" />
-          <StatCard label="Total de previsões" value={r.totalPrevisoes ?? '—'} icon="🤖" color="green" />
+          <StatCard label="Locais monitorados" value={String(r.totalLocaisMonitorados ?? r.totalLocais ?? '—')} icon="📍" color="cyan" />
+          <StatCard label="Alertas ativos"     value={String(r.alertasAtivos ?? '—')} icon="🔔" color="red" />
+          <StatCard label="Locais em risco"    value={String(r.locaisEmRiscoCritico ?? r.locaisEmRiscoAlto ?? '—')} icon="⚠️" color="orange" />
+          <StatCard label="Total de previsões" value={String(r.totalPrevisoes ?? '—')} icon="🤖" color="green" />
         </div>
       )}
 
@@ -39,7 +39,7 @@ export default function Dashboard() {
         <div>
           <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-4">Alertas recentes</p>
           {alertas.loading && <LoadingBox />}
-          {alertas.error   && <ErrorBox message={alertas.error} />}
+          {alertas.error   && <ErrorBox message={String(alertas.error)} />}
           {alertas.data && (alertas.data as Alerta[]).length === 0 && (
             <div className="orbi-card text-center py-8 text-orbi-muted text-sm">Nenhum alerta recente.</div>
           )}
@@ -66,7 +66,7 @@ export default function Dashboard() {
         <div>
           <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-4">Locais em risco</p>
           {locais.loading && <LoadingBox />}
-          {locais.error   && <ErrorBox message={locais.error} />}
+          {locais.error   && <ErrorBox message={String(locais.error)} />}
           {locais.data && (locais.data as LocalRisco[]).length === 0 && (
             <div className="orbi-card text-center py-8 text-orbi-muted text-sm">Nenhum local em risco.</div>
           )}
