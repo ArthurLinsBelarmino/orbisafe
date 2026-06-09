@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// 🔥 Importando as imagens diretamente da pasta assets!
 import arthurImg from '../assets/Arthur.jpeg';
 import henriqueImg from '../assets/henrique.jpeg';
 import raphaelImg from '../assets/Raphael.jpeg';
@@ -60,7 +59,7 @@ export default function Integrantes() {
       <p className="font-mono text-xs text-orbi-cyan uppercase tracking-widest mb-2">/ Integrantes</p>
       <h1 className="font-display font-bold text-4xl text-orbi-text mb-2">Nossa Equipe</h1>
       <p className="text-orbi-muted mb-12 max-w-xl">
-        Conheça os desenvolvedores por trás do OrbiSafe — Global Solution 2026/1, FIAP.
+        Conheça os desenvolvedores por trás do OrbiSafe — Global Solution 2026, FIAP.
       </p>
 
       <div className={`grid gap-6 ${integrantes.length === 1 ? 'max-w-sm' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
@@ -106,7 +105,7 @@ export default function Integrantes() {
 
       <div className="orbi-card mt-10 text-center border-orbi-cyan/10">
         <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-2">Projeto</p>
-        <p className="text-orbi-text font-display font-semibold">Global Solution 2026/1 — FIAP</p>
+        <p className="text-orbi-text font-display font-semibold">Global Solution 2026 — FIAP</p>
         <p className="text-orbi-muted text-sm mt-1">Análise e Desenvolvimento de Sistemas · Turmas 1TDSPS</p>
         <p className="text-orbi-cyan text-sm mt-1 font-mono">Tema: Economia Espacial</p>
       </div>
