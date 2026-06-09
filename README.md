@@ -93,8 +93,6 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 
 ![Alertas](./src/assets/alertas.png)
 
-> Substitua as imagens acima pelos prints reais da aplicação antes da entrega.
-
 ---
 
 ## Arquitetura do Projeto
