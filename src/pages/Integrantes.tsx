@@ -12,26 +12,29 @@ const integrantes: Integrante[] = [
   {
     nome: 'Arthur Lins Belarmino',
     rm: '566845',
-    turma: '1TDSPS — Agosto',
+    turma: '1TDSPS',
     github: 'https://github.com/ArthurLinsBelarmino',
     linkedin: 'https://www.linkedin.com/in/arthur-lins-belarmino-3b1369328/',
     papel: 'Front-End & Business',
+    foto: '/Arthur.jpeg',
   },
   {
     nome: 'Henrique Spoltore Moreno Pavão dos Santos',
     rm: '568130',
-    turma: '1TDSPS — Agosto',
+    turma: '1TDSPS',
     github: 'https://github.com/henrique477',
     linkedin: 'https://www.linkedin.com/in/henrique-pav%C3%A3o-849407251',
     papel: 'Front-End & Business',
+    foto: '/henrique.jpeg',
   },
  {
     nome: 'Raphael Mendonça',
     rm: '568346',
-    turma: '1TDSPS — Agosto',
+    turma: '1TDSPS',
     github: 'https://github.com/Raphael-Sinelli',
     linkedin: 'https://www.linkedin.com/in/raphael-sinelli-675310321',
     papel: 'Front-End & Business',
+    foto: '/Raphael.jpeg',
   }
 ];
 
