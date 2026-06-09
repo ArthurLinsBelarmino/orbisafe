@@ -212,11 +212,11 @@ O sistema realiza comunicação com uma API REST desenvolvida em Java, permitind
 
 ## Equipe de Desenvolvimento
 
-| Integrante                                | RM       | Turma           | Função               |
-| ----------------------------------------- | -------- | --------------- | -------------------- |
-| Arthur Lins Belarmino                     | RM566845 |      1TDSPS     | Front-End & Business |
-| Henrique Spoltore Moreno Pavão dos Santos | RM568130 |      1TDSPS     | Front-End & Business |
-| Raphael Mendonça                          | RM568346 |      1TDSPS     | Front-End & Business |
+| Foto | Integrante                                | RM       | Turma           | Função               |
+| :---: | ----------------------------------------- | -------- | --------------- | -------------------- |
+| <img src="./src/assets/Arthur.jpeg" width="80" style="border-radius: 50%;"> | Arthur Lins Belarmino                     | RM566845 |      1TDSPS     | Front-End & Business |
+| <img src="./src/assets/henrique.jpeg" width="80" style="border-radius: 50%;"> | Henrique Spoltore Moreno Pavão dos Santos | RM568130 |      1TDSPS     | Front-End & Business |
+| <img src="./src/assets/Raphael.jpeg" width="80" style="border-radius: 50%;"> | Raphael Mendonça                          | RM568346 |      1TDSPS     | Front-End & Business |
 
 ### Arthur Lins Belarmino
 
@@ -238,6 +238,13 @@ O sistema realiza comunicação com uma API REST desenvolvida em Java, permitind
 ## Projeto Acadêmico
 
 Projeto desenvolvido para a **Global Solution 2026/1 da FIAP**, com foco na utilização de tecnologias espaciais e Inteligência Artificial para monitoramento ambiental, prevenção de desastres naturais e apoio à tomada de decisões.
+
+---
+
+## Contato
+
+Em caso de dúvidas, entre em contato com a equipe pelo e-mail:
+orbisafe@fiap.com.br
 
 ---
 
