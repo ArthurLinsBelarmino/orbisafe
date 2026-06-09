@@ -23,7 +23,7 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Front-End
 
@@ -52,7 +52,7 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 
 ---
 
-## 🎯 Principais Funcionalidades
+## Principais Funcionalidades
 
 *  Monitoramento de enchentes
 *  Detecção de áreas suscetíveis a queimadas
@@ -64,11 +64,11 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 *  Interface responsiva para desktop, tablet e smartphone
 *  Central de dúvidas (FAQ)
 *  Página de integrantes
-* ℹ Página institucional da solução
+*  Página institucional da solução
 
 ---
 
-## ⭐ Diferenciais da Solução
+## Diferenciais da Solução
 
 * Utilização de dados espaciais para análise ambiental.
 * Interface moderna e intuitiva.
@@ -79,7 +79,7 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 
 ---
 
-## 📸 Preview da Aplicação
+## Preview da Aplicação
 
 ### Home
 
@@ -97,7 +97,7 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 
 ---
 
-## 🏗️ Arquitetura do Projeto
+## Arquitetura do Projeto
 
 ```text
 Usuário
@@ -154,23 +154,23 @@ orbisafe/
 ```
 ---
 
-## 🌐 Links do Projeto
+## Links do Projeto
 
-### 🚀 Deploy
+### Deploy
 
 https://orbisafe.vercel.app
 
-### 💻 Repositório GitHub
+### Repositório GitHub
 
 https://github.com/ArthurLinsBelarmino/orbisafe
 
-### 🎥 Vídeo Demonstrativo
+### Vídeo Demonstrativo
 
 Em breve
 
 ---
 
-## ⚙️ Como Executar o Projeto Localmente
+## Como Executar o Projeto Localmente
 
 Clone o repositório:
 
@@ -199,7 +199,7 @@ http://localhost:5173
 ```
 ---
 
-## 🔗 Integração com API
+## Integração com API
 
 O sistema realiza comunicação com uma API REST desenvolvida em Java, permitindo:
 
@@ -212,13 +212,13 @@ O sistema realiza comunicação com uma API REST desenvolvida em Java, permitind
 
 ---
 
-## 👨‍💻 Equipe de Desenvolvimento
+## Equipe de Desenvolvimento
 
 | Integrante                                | RM       | Turma           | Função               |
 | ----------------------------------------- | -------- | --------------- | -------------------- |
-| Arthur Lins Belarmino                     | RM566845 | 1TDSPS — Agosto | Front-End & Business |
-| Henrique Spoltore Moreno Pavão dos Santos | RM568130 | 1TDSPS — Agosto | Front-End & Business |
-| Raphael Mendonça                          | RM568346 | 1TDSPS — Agosto | Front-End & Business |
+| Arthur Lins Belarmino                     | RM566845 |      1TDSPS     | Front-End & Business |
+| Henrique Spoltore Moreno Pavão dos Santos | RM568130 |      1TDSPS     | Front-End & Business |
+| Raphael Mendonça                          | RM568346 |      1TDSPS     | Front-End & Business |
 
 ### Arthur Lins Belarmino
 
@@ -237,13 +237,13 @@ O sistema realiza comunicação com uma API REST desenvolvida em Java, permitind
 
 ---
 
-## 🎓 Projeto Acadêmico
+## Projeto Acadêmico
 
 Projeto desenvolvido para a **Global Solution 2026/1 da FIAP**, com foco na utilização de tecnologias espaciais e Inteligência Artificial para monitoramento ambiental, prevenção de desastres naturais e apoio à tomada de decisões.
 
 ---
 
-## 📄 Licença
+## Licença
 
 Projeto desenvolvido exclusivamente para fins acadêmicos.
 
