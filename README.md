@@ -13,7 +13,7 @@
 
 ---
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
 O **OrbiSafe** é uma plataforma web desenvolvida para monitoramento e prevenção de eventos climáticos extremos. A solução utiliza dados espaciais, indicadores ambientais e Inteligência Artificial para identificar riscos de enchentes, queimadas e ondas de calor extremo antes que eles se transformem em desastres.
 
