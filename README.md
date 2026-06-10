@@ -87,7 +87,7 @@ O projeto foi desenvolvido durante a **Global Solution FIAP 2026**, integrando c
 
 ### Dashboard
 
-![Dashboard](./src/assets/Dashboard.png)
+![Dashboard](./src/assets/dashboard1.png)
 
 ### Alertas
 
