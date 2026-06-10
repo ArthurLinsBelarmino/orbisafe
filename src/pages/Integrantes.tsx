@@ -27,7 +27,7 @@ const integrantes: Integrante[] = [
   {
     nome: 'Henrique Spoltore Moreno Pavão dos Santos',
     rm: '568130',
-    turma: '1TDSPS',
+    turma: '1TDSPA',
     github: 'https://github.com/henrique477',
     linkedin: 'https://www.linkedin.com/in/henrique-pav%C3%A3o-849407251',
     papel: 'Front-End & Business',

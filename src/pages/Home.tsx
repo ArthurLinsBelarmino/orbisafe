@@ -94,7 +94,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <p className="font-mono text-xs text-orbi-cyan uppercase tracking-widest mb-2">Funcionalidades</p>

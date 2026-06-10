@@ -61,7 +61,6 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        {/* Últimos alertas */}
         <div>
           <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-4">
             Alertas recentes
@@ -97,7 +96,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Locais de maior risco */}
         <div>
           <p className="font-mono text-xs text-orbi-muted uppercase tracking-widest mb-4">
             Locais em risco

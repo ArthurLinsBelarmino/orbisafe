@@ -215,7 +215,7 @@ O sistema realiza comunicação com uma API REST desenvolvida em Java, permitind
 | Foto | Integrante                                | RM       | Turma           | Função               |
 | :---: | ----------------------------------------- | -------- | --------------- | -------------------- |
 | <img src="./src/assets/Arthur.jpeg" width="80" style="border-radius: 50%;"> | Arthur Lins Belarmino                     | RM566845 |      1TDSPS     | Front-End & Business |
-| <img src="./src/assets/henrique.jpeg" width="80" style="border-radius: 50%;"> | Henrique Spoltore Moreno Pavão dos Santos | RM568130 |      1TDSPS     | Front-End & Business |
+| <img src="./src/assets/henrique.jpeg" width="80" style="border-radius: 50%;"> | Henrique Spoltore Moreno Pavão dos Santos | RM568130 |      1TDSPA     | Front-End & Business |
 | <img src="./src/assets/Raphael.jpeg" width="80" style="border-radius: 50%;"> | Raphael Mendonça                          | RM568346 |      1TDSPS     | Front-End & Business |
 
 ### Arthur Lins Belarmino
