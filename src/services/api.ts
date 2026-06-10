@@ -1,4 +1,6 @@
-const BASE_URL = 'https://orbisafe-api-java-gs.onrender.com';
+const BASE_URL = import.meta.env.PROD
+  ? 'https://orbisafe-api-java-gs.onrender.com'
+  : '/api';
 
 const validateId = (id: number, entidade: string) => {
   if (id === undefined || id === null || isNaN(Number(id))) {
@@ -11,9 +13,7 @@ async function get<T>(path: string): Promise<T> {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
-  if (!response.ok) {
-    throw new Error(`Erro ${response.status}: ${response.statusText}`);
-  }
+  if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
   return response.json() as Promise<T>;
 }
 
@@ -23,9 +23,7 @@ async function post<T>(path: string, body: unknown): Promise<T> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!response.ok) {
-    throw new Error(`Erro ${response.status}: ${response.statusText}`);
-  }
+  if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
   return response.json() as Promise<T>;
 }
 
@@ -35,9 +33,7 @@ async function put<T>(path: string, body: unknown): Promise<T> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!response.ok) {
-    throw new Error(`Erro ${response.status}: ${response.statusText}`);
-  }
+  if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
   return response.json() as Promise<T>;
 }
 
@@ -47,9 +43,7 @@ async function patch<T>(path: string, body: unknown): Promise<T> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!response.ok) {
-    throw new Error(`Erro ${response.status}: ${response.statusText}`);
-  }
+  if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
   return response.json() as Promise<T>;
 }
 
@@ -58,9 +52,7 @@ async function del(path: string): Promise<void> {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   });
-  if (!response.ok) {
-    throw new Error(`Erro ${response.status}: ${response.statusText}`);
-  }
+  if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
 }
 
 export const api = {
@@ -79,17 +71,10 @@ export const api = {
   getAlertas: () => get<unknown[]>('/alertas'),
   getAlertaById: (id: number) => { validateId(id, 'Alerta'); return get<unknown>(`/alertas/${id}`); },
   getAlertasByLocal: (localId: number) => { validateId(localId, 'Alerta-Local'); return get<unknown[]>(`/alertas/local/${localId}`); },
-  
   getAlertasByStatus: (status: 'ABERTO' | 'EM_ANALISE' | 'RESOLVIDO') => get<unknown[]>(`/alertas/status/${status}`),
-  
   createAlerta: (body: unknown) => post<unknown>('/alertas', body),
   updateAlerta: (id: number, body: unknown) => { validateId(id, 'Alerta'); return put<unknown>(`/alertas/${id}`, body); },
-  
-  updateAlertaStatus: (id: number, status: 'ABERTO' | 'EM_ANALISE' | 'RESOLVIDO') => { 
-    validateId(id, 'Alerta'); 
-    return patch<unknown>(`/alertas/${id}/status`, { status }); 
-  },
-  
+  updateAlertaStatus: (id: number, status: 'ABERTO' | 'EM_ANALISE' | 'RESOLVIDO') => { validateId(id, 'Alerta'); return patch<unknown>(`/alertas/${id}/status`, { status }); },
   deleteAlerta: (id: number) => { validateId(id, 'Alerta'); return del(`/alertas/${id}`); },
 
   getPrevisoes: () => get<unknown[]>('/previsoes'),
@@ -113,6 +98,5 @@ export const api = {
   deleteUsuario: (id: number) => { validateId(id, 'Usuario'); return del(`/usuarios/${id}`); },
 
   getFontes: () => get<unknown[]>('/fontes'),
-
   getModelosIA: () => get<unknown[]>('/modelos-ia'),
 };
